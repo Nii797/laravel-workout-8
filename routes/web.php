@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Gallery;
 use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 
@@ -48,4 +49,22 @@ route::get('posts/{slug}', function ($slug) {
 
 });
 
+// halaman gallery
+route::get('/gallery', function () {
 
+    return view('gallery', [
+        "title" => "Gallery",
+        "gallery" => Gallery::all()
+    ]);
+
+});
+
+// halaman gallery gallery
+route::get('/gallery/{slug}', function ($slug) {
+
+    return view('gallery-detail', [
+        "title" => "Detail Gallery",
+        "gallery" => Gallery::find($slug)
+    ]);
+
+});

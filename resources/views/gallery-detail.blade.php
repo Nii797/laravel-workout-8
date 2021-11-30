@@ -4,10 +4,10 @@
 
     <h1 class="mt-4">Detail Gallery</h1>
     <article class="mt-4">
-        <img src="" alt="">
-        <h2>Judul</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At, cupiditate!</p>
-        <a href="">Lihat Detail</a>
+        <img src="/img/{{ $gallery["image"] }}" alt="Gambar Gallery" width="400">
+        <h2>{{ $gallery["title"] }}</h2>
+        <p>{{ $gallery["body"] }}</p>
+        <a href="/gallery">Back to Gallery</a>
     </article>
 
 @endsection
