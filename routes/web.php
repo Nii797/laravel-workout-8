@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\PostController;
 use App\Models\Gallery;
 use App\Models\Post;
@@ -55,21 +56,5 @@ Route::get('/blog', [PostController::class, 'index']);
 Route::get('posts/{slug}', [PostController::class, 'show']);
 
 // halaman gallery
-route::get('/gallery', function () {
-
-    return view('gallery', [
-        "title" => "Gallery",
-        "gallery" => Gallery::all()
-    ]);
-
-});
-
-// halaman gallery gallery
-route::get('/gallery/{slug}', function ($slug) {
-
-    return view('gallery-detail', [
-        "title" => "Detail Gallery",
-        "gallery" => Gallery::find($slug)
-    ]);
-
-});
+Route::get('gallery', [GalleryController::class, 'index']);
+route::get('/gallery/{slug}', [GalleryController::class, 'show']);
