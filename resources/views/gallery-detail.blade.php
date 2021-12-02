@@ -10,4 +10,5 @@
         <a href="/gallery">Back to Gallery</a>
     </article>
 
+
 @endsection
