@@ -53,7 +53,9 @@ Route::get('/blog', [PostController::class, 'index']);
 
 // });
 // versi controller
-Route::get('posts/{slug}', [PostController::class, 'show']);
+// Route::get('posts/{slug}', [PostController::class, 'show']);
+// model binding
+Route::get('/posts/{post:slug}', [PostController::class, 'show']);
 
 // halaman gallery
 Route::get('gallery', [GalleryController::class, 'index']);
