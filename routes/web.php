@@ -4,6 +4,7 @@ use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\PostController;
 use App\Models\Gallery;
 use App\Models\Post;
+use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 
 
@@ -55,7 +56,24 @@ Route::get('/blog', [PostController::class, 'index']);
 // versi controller
 // Route::get('posts/{slug}', [PostController::class, 'show']);
 // model binding
+
 Route::get('/posts/{post:slug}', [PostController::class, 'show']);
+
+Route::get('/categories', function() {
+    return view('categories', [
+        'title' => 'Post Categories',
+        'categories' => Category::all()
+    ]);
+});
+
+// category
+Route::get('categories/{category:slug}', function (Category $category) {
+    return view('category', [
+        'title' => $category->name,
+        'posts' => $category->posts,
+        'category' => $category->name
+    ]);
+});
 
 // halaman gallery
 Route::get('gallery', [GalleryController::class, 'index']);
