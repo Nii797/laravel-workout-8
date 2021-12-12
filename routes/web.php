@@ -34,28 +34,7 @@ Route::get('/about', function () {
     ]);
 });
 
-// blog
-// Route::get('/blog', function () {
-//     return view('posts', [
-//         "title" => "Posts",
-//         "posts" => Post::all()
-//     ]);
-// });
-// versi controller
 Route::get('/blog', [PostController::class, 'index']);
-
-// halaman single post
-// route::get('posts/{slug}', function ($slug) {
-
-//     return view('post', [
-//         "title" => "Single Post",
-//         "post" => Post::find($slug)
-//     ]);
-
-// });
-// versi controller
-// Route::get('posts/{slug}', [PostController::class, 'show']);
-// model binding
 
 Route::get('/posts/{post:slug}', [PostController::class, 'show']);
 
