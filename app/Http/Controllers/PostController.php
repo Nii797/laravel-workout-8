@@ -12,9 +12,8 @@ class PostController extends Controller
     {
         return view('posts', [
             "title" => "All Posts",
-            // "posts" => Post::all()
-            // menampilkan data terbaru 
-            'posts' => Post::latest()->get()
+            // N+! Problem
+            'posts' => Post::with(['author', 'category'])->latest()->get()
         ]);
     }
     
