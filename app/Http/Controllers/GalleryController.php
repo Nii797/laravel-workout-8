@@ -11,6 +11,7 @@ class GalleryController extends Controller
     {
         return view('gallery', [
             "title" => "Gallery",
+            "active" => "gallery",
             "gallery" => Gallery::all()
         ]);
     }
@@ -19,6 +20,7 @@ class GalleryController extends Controller
     {
         return view('gallery-detail', [
             "title" => "Gallery Detail",
+            "active" => "gallery",
             "gallery" => Gallery::find($slug)
         ]);
     }
